@@ -37,43 +37,43 @@ const StaffGrid = ({ staff, onViewStaff, onEditStaff }) => {
           <Card hover className="p-6">
             <div className="text-center">
               {/* Avatar */}
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${getRoleColor(member.role)} flex items-center justify-center`}>
-                <ApperIcon name={getRoleIcon(member.role)} className="w-8 h-8 text-white" />
+<div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${getRoleColor(member.role_c)} flex items-center justify-center`}>
+                <ApperIcon name={getRoleIcon(member.role_c)} className="w-8 h-8 text-white" />
               </div>
 
               {/* Name & Role */}
               <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                {member.firstName} {member.lastName}
+                {member.first_name_c} {member.last_name_c}
               </h3>
-              <p className="text-sm text-gray-600 capitalize mb-2">{member.role}</p>
+              <p className="text-sm text-gray-600 capitalize mb-2">{member.role_c}</p>
               
               {/* Status */}
               <div className="mb-4">
-                <StatusBadge status={member.status} type="staff" />
+                <StatusBadge status={member.status_c} type="staff" />
               </div>
 
               {/* Details */}
               <div className="space-y-2 mb-4">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                   <ApperIcon name="Building" className="w-4 h-4" />
-                  <span>{member.department}</span>
+                  <span>{member.department_c}</span>
                 </div>
                 
-                {member.specialization && (
+                {member.specialization_c && (
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <ApperIcon name="Award" className="w-4 h-4" />
-                    <span>{member.specialization}</span>
+                    <span>{member.specialization_c}</span>
                   </div>
                 )}
 
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                   <ApperIcon name="Clock" className="w-4 h-4" />
-                  <span>{member.shiftStart} - {member.shiftEnd}</span>
+                  <span>{member.shift_start_c} - {member.shift_end_c}</span>
                 </div>
 
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                   <ApperIcon name="Phone" className="w-4 h-4" />
-                  <span>{member.phone}</span>
+                  <span>{member.phone_c}</span>
                 </div>
               </div>
 

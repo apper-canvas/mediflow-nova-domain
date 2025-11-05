@@ -184,9 +184,9 @@ const Admissions = () => {
                   onChange={(e) => setAdmissionForm({...admissionForm, department: e.target.value})}
                   required
                 >
-                  <option value="">Select Department</option>
+<option value="">Select Department</option>
                   {departments.map(dept => (
-                    <option key={dept.Id} value={dept.name}>{dept.name}</option>
+                    <option key={dept.Id} value={dept.name_c}>{dept.name_c}</option>
                   ))}
                 </Select>
 
@@ -197,9 +197,9 @@ const Admissions = () => {
                   required
                 >
                   <option value="">Select Bed</option>
-                  {availableBeds.map(bed => (
+{availableBeds.map(bed => (
                     <option key={bed.Id} value={bed.Id}>
-                      {bed.number} - {bed.ward} ({bed.type})
+                      {bed.number_c} - {bed.ward_c} ({bed.type_c})
                     </option>
                   ))}
                 </Select>
@@ -301,32 +301,32 @@ const Admissions = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-100 to-cyan-100 flex items-center justify-center">
-                          <span className="text-primary-700 font-semibold text-sm">
-                            {patient.firstName[0]}{patient.lastName[0]}
+<span className="text-primary-700 font-semibold text-sm">
+                            {patient.first_name_c?.[0]}{patient.last_name_c?.[0]}
                           </span>
                         </div>
                         <div>
                           <div className="text-sm font-medium text-gray-900">
-                            {patient.firstName} {patient.lastName}
+                            {patient.first_name_c} {patient.last_name_c}
                           </div>
                           <div className="text-sm text-gray-500">ID: P{String(patient.Id).padStart(3, "0")}</div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {patient.department}
+                      {patient.department_c}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {patient.bedNumber}
+                      {patient.bed_number_c}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {patient.assignedDoctor}
+                      {patient.assigned_doctor_c}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {format(new Date(patient.admissionDate), "MMM dd, yyyy")}
+                      {patient.admission_date_c ? format(new Date(patient.admission_date_c), "MMM dd, yyyy") : "N/A"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <StatusBadge status={patient.status} type="patient" />
+<StatusBadge status={patient.status_c} type="patient" />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm space-x-2">
                       <Button

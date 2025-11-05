@@ -1,8 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
 import ApperIcon from "@/components/ApperIcon";
+import Dashboard from "@/components/pages/Dashboard";
 import SearchBar from "@/components/molecules/SearchBar";
-
+import LogoutButton from "@/components/atoms/LogoutButton";
 const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -82,10 +83,11 @@ const Header = () => {
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary-500 to-cyan-400 flex items-center justify-center">
               <ApperIcon name="User" className="w-4 h-4 text-white" />
             </div>
-            <div className="hidden sm:block">
+<div className="hidden sm:block">
               <p className="text-sm font-medium text-gray-900">Dr. Admin</p>
               <p className="text-xs text-gray-500">Administrator</p>
             </div>
+            <LogoutButton />
           </div>
         </div>
       </div>

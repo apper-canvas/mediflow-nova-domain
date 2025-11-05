@@ -35,7 +35,7 @@ const Appointments = () => {
   }, []);
 
   const handleAppointmentClick = (appointment) => {
-    toast.info(`Opening appointment details for Patient ID: ${appointment.patientId}`);
+toast.info(`Opening appointment details for Patient ID: ${appointment.patient_id_c}`);
   };
 
   const handleNewAppointment = () => {
@@ -43,18 +43,18 @@ const Appointments = () => {
   };
 
   const getStatusCounts = () => {
-    return {
+return {
       all: appointments.length,
-      scheduled: appointments.filter(a => a.status === "scheduled").length,
-      completed: appointments.filter(a => a.status === "completed").length,
-      cancelled: appointments.filter(a => a.status === "cancelled").length,
-      "no-show": appointments.filter(a => a.status === "no-show").length
+      scheduled: appointments.filter(a => a.status_c === "scheduled").length,
+      completed: appointments.filter(a => a.status_c === "completed").length,
+      cancelled: appointments.filter(a => a.status_c === "cancelled").length,
+      "no-show": appointments.filter(a => a.status_c === "no-show").length
     };
   };
 
-  const filteredAppointments = filterStatus === "all" 
+const filteredAppointments = filterStatus === "all" 
     ? appointments 
-    : appointments.filter(apt => apt.status === filterStatus);
+    : appointments.filter(apt => apt.status_c === filterStatus);
 
   if (loading) return <Loading />;
   if (error) return <Error message={error} onRetry={loadAppointments} />;

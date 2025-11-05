@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import React from "react";
 import ApperIcon from "@/components/ApperIcon";
-import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
+import Card from "@/components/atoms/Card";
 
 const DepartmentGrid = ({ departments, onViewDepartment }) => {
   const getDepartmentIcon = (name) => {
@@ -40,12 +41,12 @@ const DepartmentGrid = ({ departments, onViewDepartment }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {departments.map((department, index) => {
-        const occupancyRate = Math.round((department.occupiedBeds / department.totalBeds) * 100);
+{departments.map((department, index) => {
+        const occupancyRate = Math.round(((department.occupied_beds_c || 0) / (department.total_beds_c || 1)) * 100);
         
         return (
           <motion.div
-            key={department.Id}
+            key={department.id || index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
@@ -53,23 +54,23 @@ const DepartmentGrid = ({ departments, onViewDepartment }) => {
             <Card hover className="p-6">
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${getDepartmentColor(department.name)} flex items-center justify-center`}>
-                  <ApperIcon name={getDepartmentIcon(department.name)} className="w-6 h-6 text-white" />
+<div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${getDepartmentColor(department.name_c)} flex items-center justify-center`}>
+                  <ApperIcon name={getDepartmentIcon(department.name_c)} className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                  {department.floor}
+                  {department.floor_c}
                 </span>
               </div>
 
               {/* Department Name */}
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {department.name}
+                {department.name_c}
               </h3>
 
               {/* Head Doctor */}
               <div className="flex items-center space-x-2 mb-4 text-sm text-gray-600">
                 <ApperIcon name="UserCheck" className="w-4 h-4" />
-                <span>{department.headDoctor}</span>
+                <span>{department.head_doctor_c}</span>
               </div>
 
               {/* Stats */}
@@ -82,7 +83,7 @@ const DepartmentGrid = ({ departments, onViewDepartment }) => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <span className="text-sm font-medium text-gray-900">
-                      {department.occupiedBeds}/{department.totalBeds}
+                      {department.occupied_beds_c}/{department.total_beds_c}
                     </span>
                     <span className={`text-sm font-semibold ${getOccupancyColor(occupancyRate)}`}>
                       {occupancyRate}%
@@ -109,7 +110,7 @@ const DepartmentGrid = ({ departments, onViewDepartment }) => {
                     <span className="text-sm text-gray-600">Staff</span>
                   </div>
                   <span className="text-sm font-medium text-gray-900">
-                    {department.staffCount} members
+                    {department.staff_count_c} members
                   </span>
                 </div>
               </div>

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
-
+import { cn } from "@/utils/cn";
+import LogoutButton from "@/components/molecules/LogoutButton";
 const Sidebar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
@@ -34,7 +34,7 @@ const Sidebar = () => {
       <nav className="mt-6 px-3">
         <ul className="space-y-1">
           {navigation.map((item) => (
-            <li key={item.name}>
+<li key={item.name}>
               <NavLink
                 to={item.path}
                 className={({ isActive }) => cn(
@@ -53,6 +53,11 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
+
+        {/* Logout Button */}
+        <div className="mt-6">
+          <LogoutButton />
+        </div>
       </nav>
     </div>
   );
@@ -95,7 +100,7 @@ const Sidebar = () => {
             
             <nav className="mt-6 px-3">
               <ul className="space-y-1">
-                {navigation.map((item) => (
+{navigation.map((item) => (
                   <li key={item.name}>
                     <NavLink
                       to={item.path}

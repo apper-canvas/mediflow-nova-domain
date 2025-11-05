@@ -52,20 +52,20 @@ const Dashboard = () => {
   if (error) return <Error message={error} onRetry={loadDashboardData} />;
 
   const stats = {
-    totalPatients: data.patients.length,
-    admittedPatients: data.patients.filter(p => p.status === "admitted").length,
-    todayAppointments: data.appointments.filter(a => a.date === format(new Date(), "yyyy-MM-dd")).length,
-    onDutyStaff: data.staff.filter(s => s.status === "on-duty").length,
-    totalBeds: data.departments.reduce((sum, dept) => sum + dept.totalBeds, 0),
-    occupiedBeds: data.departments.reduce((sum, dept) => sum + dept.occupiedBeds, 0)
+totalPatients: data.patients.length,
+    admittedPatients: data.patients.filter(p => p.status_c === "admitted").length,
+    todayAppointments: data.appointments.filter(a => a.date_c === format(new Date(), "yyyy-MM-dd")).length,
+    onDutyStaff: data.staff.filter(s => s.status_c === "on-duty").length,
+    totalBeds: data.departments.reduce((sum, dept) => sum + (dept.total_beds_c || 0), 0),
+    occupiedBeds: data.departments.reduce((sum, dept) => sum + (dept.occupied_beds_c || 0), 0)
   };
 
-  const recentAppointments = data.appointments
-    .filter(a => a.status === "scheduled")
+const recentAppointments = data.appointments
+    .filter(a => a.status_c === "scheduled")
     .slice(0, 5);
 
-  const urgentPatients = data.patients
-    .filter(p => p.status === "admitted")
+const urgentPatients = data.patients
+    .filter(p => p.status_c === "admitted")
     .slice(0, 5);
 
   return (
@@ -166,15 +166,15 @@ const Dashboard = () => {
                     <ApperIcon name="Clock" className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      {appointment.time}
+<p className="text-sm font-medium text-gray-900">
+                      {appointment.time_c}
                     </p>
                     <p className="text-xs text-gray-500">
-                      Patient ID: {appointment.patientId}
+                      Patient ID: {appointment.patient_id_c}
                     </p>
                   </div>
                 </div>
-                <StatusBadge status={appointment.status} type="appointment" />
+                <StatusBadge status={appointment.status_c} type="appointment" />
               </motion.div>
             ))}
           </div>
@@ -203,20 +203,20 @@ const Dashboard = () => {
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-100 to-cyan-100 flex items-center justify-center">
-                    <span className="text-primary-700 font-semibold text-sm">
-                      {patient.firstName[0]}{patient.lastName[0]}
+<span className="text-primary-700 font-semibold text-sm">
+                      {patient.first_name_c?.[0]}{patient.last_name_c?.[0]}
                     </span>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">
-                      {patient.firstName} {patient.lastName}
+                      {patient.first_name_c} {patient.last_name_c}
                     </p>
                     <p className="text-xs text-gray-500">
-                      {patient.department} - {patient.bedNumber}
+                      {patient.department_c} - {patient.bed_number_c}
                     </p>
                   </div>
                 </div>
-                <StatusBadge status={patient.status} type="patient" />
+                <StatusBadge status={patient.status_c} type="patient" />
               </motion.div>
             ))}
           </div>
@@ -235,8 +235,8 @@ const Dashboard = () => {
           </div>
           
           <div className="space-y-4">
-            {data.departments.slice(0, 5).map((department, index) => {
-              const occupancyRate = Math.round((department.occupiedBeds / department.totalBeds) * 100);
+{data.departments.slice(0, 5).map((department, index) => {
+              const occupancyRate = Math.round(((department.occupied_beds_c || 0) / (department.total_beds_c || 1)) * 100);
               
               return (
                 <motion.div
@@ -251,11 +251,11 @@ const Dashboard = () => {
                       <ApperIcon name="Building" className="w-5 h-5 text-primary-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">
-                        {department.name}
+<p className="text-sm font-medium text-gray-900">
+                        {department.name_c}
                       </p>
                       <p className="text-xs text-gray-500">
-                        {department.occupiedBeds}/{department.totalBeds} beds
+                        {department.occupied_beds_c}/{department.total_beds_c} beds
                       </p>
                     </div>
                   </div>

@@ -44,24 +44,24 @@ const Staff = () => {
     let filtered = [...staff];
 
     // Apply role filter
-    if (filterRole !== "all") {
-      filtered = filtered.filter(member => member.role === filterRole);
+if (filterRole !== "all") {
+      filtered = filtered.filter(member => member.role_c === filterRole);
     }
 
     // Apply status filter
-    if (filterStatus !== "all") {
-      filtered = filtered.filter(member => member.status === filterStatus);
+if (filterStatus !== "all") {
+      filtered = filtered.filter(member => member.status_c === filterStatus);
     }
 
     // Apply search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(member =>
-        member.firstName.toLowerCase().includes(query) ||
-        member.lastName.toLowerCase().includes(query) ||
-        member.email.toLowerCase().includes(query) ||
-        member.department.toLowerCase().includes(query) ||
-        (member.specialization && member.specialization.toLowerCase().includes(query))
+filtered = filtered.filter(member =>
+        member.first_name_c?.toLowerCase().includes(query) ||
+        member.last_name_c?.toLowerCase().includes(query) ||
+        member.email_c?.toLowerCase().includes(query) ||
+        member.department_c?.toLowerCase().includes(query) ||
+        (member.specialization_c && member.specialization_c.toLowerCase().includes(query))
       );
     }
 
@@ -72,12 +72,12 @@ const Staff = () => {
     setSearchQuery(query);
   };
 
-  const handleViewStaff = (member) => {
-    toast.info(`Viewing details for ${member.firstName} ${member.lastName}`);
+const handleViewStaff = (member) => {
+    toast.info(`Viewing details for ${member.first_name_c} ${member.last_name_c}`);
   };
 
   const handleEditStaff = (member) => {
-    toast.info(`Editing ${member.firstName} ${member.lastName}`);
+    toast.info(`Editing ${member.first_name_c} ${member.last_name_c}`);
   };
 
   const handleNewStaff = () => {
@@ -85,21 +85,21 @@ const Staff = () => {
   };
 
   const getStatusCounts = () => {
-    return {
+return {
       all: staff.length,
-      "on-duty": staff.filter(s => s.status === "on-duty").length,
-      "off-duty": staff.filter(s => s.status === "off-duty").length,
-      "on-leave": staff.filter(s => s.status === "on-leave").length
+      "on-duty": staff.filter(s => s.status_c === "on-duty").length,
+      "off-duty": staff.filter(s => s.status_c === "off-duty").length,
+      "on-leave": staff.filter(s => s.status_c === "on-leave").length
     };
   };
 
   const getRoleCounts = () => {
     return {
       all: staff.length,
-      doctor: staff.filter(s => s.role === "doctor").length,
-      nurse: staff.filter(s => s.role === "nurse").length,
-      admin: staff.filter(s => s.role === "admin").length,
-      technician: staff.filter(s => s.role === "technician").length
+      doctor: staff.filter(s => s.role_c === "doctor").length,
+      nurse: staff.filter(s => s.role_c === "nurse").length,
+      admin: staff.filter(s => s.role_c === "admin").length,
+      technician: staff.filter(s => s.role_c === "technician").length
     };
   };
 

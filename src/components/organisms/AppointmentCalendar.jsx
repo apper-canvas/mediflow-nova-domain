@@ -21,13 +21,13 @@ const AppointmentCalendar = ({ appointments, onAppointmentClick, onNewAppointmen
   ];
 
   const getAppointmentsForDay = (date) => {
-    return appointments.filter(apt => 
-      isSameDay(new Date(apt.date), date)
+return appointments.filter(apt => 
+      isSameDay(new Date(apt.date_c), date)
     );
   };
 
-  const getAppointmentForTimeSlot = (date, time) => {
-    return appointments.find(apt => 
+const getAppointmentForTimeSlot = (date, time) => {
+    return appointments.find(apt =>
       isSameDay(new Date(apt.date), date) && apt.time === time
     );
   };
@@ -45,10 +45,10 @@ const AppointmentCalendar = ({ appointments, onAppointmentClick, onNewAppointmen
       onClick={() => onAppointmentClick(appointment)}
     >
       <div className="text-xs font-medium text-primary-900">
-        Patient ID: {appointment.patientId}
+Patient ID: {appointment.patient_id_c}
       </div>
       <div className="text-xs text-primary-700 capitalize">
-        {appointment.type}
+        {appointment.type_c}
       </div>
       <StatusBadge status={appointment.status} type="appointment" />
     </motion.div>
@@ -132,14 +132,14 @@ const AppointmentCalendar = ({ appointments, onAppointmentClick, onNewAppointmen
                 onClick={() => onAppointmentClick(appointment)}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium">{appointment.time}</span>
-                  <StatusBadge status={appointment.status} type="appointment" />
+<span className="text-sm font-medium">{appointment.time_c}</span>
+                  <StatusBadge status={appointment.status_c} type="appointment" />
                 </div>
                 <div className="text-sm text-gray-600">
-                  Patient ID: {appointment.patientId}
+                  Patient ID: {appointment.patient_id_c}
                 </div>
                 <div className="text-sm text-gray-600 capitalize">
-                  {appointment.type}
+                  {appointment.type_c}
                 </div>
               </div>
             ))}

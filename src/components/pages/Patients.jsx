@@ -44,19 +44,19 @@ const navigate = useNavigate();
     let filtered = [...patients];
 
     // Apply status filter
-    if (filterStatus !== "all") {
-      filtered = filtered.filter(patient => patient.status === filterStatus);
+if (filterStatus !== "all") {
+      filtered = filtered.filter(patient => patient.status_c === filterStatus);
     }
 
     // Apply search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(patient =>
-        patient.firstName.toLowerCase().includes(query) ||
-        patient.lastName.toLowerCase().includes(query) ||
-        patient.email.toLowerCase().includes(query) ||
-        patient.phone.includes(query) ||
-        (patient.department && patient.department.toLowerCase().includes(query))
+filtered = filtered.filter(patient =>
+        patient.first_name_c?.toLowerCase().includes(query) ||
+        patient.last_name_c?.toLowerCase().includes(query) ||
+        patient.email_c?.toLowerCase().includes(query) ||
+        patient.phone_c?.includes(query) ||
+        (patient.department_c && patient.department_c.toLowerCase().includes(query))
       );
     }
 
@@ -67,12 +67,12 @@ const navigate = useNavigate();
     setSearchQuery(query);
   };
 
-  const handleViewPatient = (patient) => {
-    toast.info(`Viewing details for ${patient.firstName} ${patient.lastName}`);
+const handleViewPatient = (patient) => {
+    toast.info(`Viewing details for ${patient.first_name_c} ${patient.last_name_c}`);
   };
 
   const handleEditPatient = (patient) => {
-    toast.info(`Editing ${patient.firstName} ${patient.lastName}`);
+    toast.info(`Editing ${patient.first_name_c} ${patient.last_name_c}`);
   };
 
 const handleNewPatient = () => {
@@ -81,10 +81,10 @@ const handleNewPatient = () => {
 
   const getStatusCounts = () => {
     return {
-      all: patients.length,
-      admitted: patients.filter(p => p.status === "admitted").length,
-      outpatient: patients.filter(p => p.status === "outpatient").length,
-      discharged: patients.filter(p => p.status === "discharged").length
+all: patients.length,
+      admitted: patients.filter(p => p.status_c === "admitted").length,
+      outpatient: patients.filter(p => p.status_c === "outpatient").length,
+      discharged: patients.filter(p => p.status_c === "discharged").length
     };
   };
 
