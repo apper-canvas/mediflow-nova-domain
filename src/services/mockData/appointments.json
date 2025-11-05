@@ -1,0 +1,68 @@
+[
+  {
+    "Id": 1,
+    "patientId": "1",
+    "doctorId": "1",
+    "date": "2024-01-20",
+    "time": "09:00",
+    "duration": 30,
+    "type": "consultation",
+    "status": "scheduled",
+    "notes": "Regular checkup"
+  },
+  {
+    "Id": 2,
+    "patientId": "2",
+    "doctorId": "2",
+    "date": "2024-01-20",
+    "time": "10:30",
+    "duration": 45,
+    "type": "follow-up",
+    "status": "scheduled",
+    "notes": "Post-treatment evaluation"
+  },
+  {
+    "Id": 3,
+    "patientId": "3",
+    "doctorId": "3",
+    "date": "2024-01-19",
+    "time": "14:00",
+    "duration": 60,
+    "type": "procedure",
+    "status": "completed",
+    "notes": "Minor surgery completed successfully"
+  },
+  {
+    "Id": 4,
+    "patientId": "4",
+    "doctorId": "2",
+    "date": "2024-01-21",
+    "time": "11:15",
+    "duration": 30,
+    "type": "consultation",
+    "status": "scheduled",
+    "notes": "Initial consultation"
+  },
+  {
+    "Id": 5,
+    "patientId": "5",
+    "doctorId": "1",
+    "date": "2024-01-18",
+    "time": "15:30",
+    "duration": 30,
+    "type": "follow-up",
+    "status": "no-show",
+    "notes": "Patient did not show up"
+  },
+  {
+    "Id": 6,
+    "patientId": "1",
+    "doctorId": "3",
+    "date": "2024-01-22",
+    "time": "08:30",
+    "duration": 45,
+    "type": "consultation",
+    "status": "cancelled",
+    "notes": "Cancelled by patient"
+  }
+]

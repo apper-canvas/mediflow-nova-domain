@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "name": "Cardiology",
+    "headDoctor": "Dr. James Smith",
+    "totalBeds": 25,
+    "occupiedBeds": 18,
+    "staffCount": 8,
+    "floor": "3rd Floor"
+  },
+  {
+    "Id": 2,
+    "name": "Neurology",
+    "headDoctor": "Dr. Patricia Brown",
+    "totalBeds": 20,
+    "occupiedBeds": 12,
+    "staffCount": 6,
+    "floor": "4th Floor"
+  },
+  {
+    "Id": 3,
+    "name": "Orthopedics",
+    "headDoctor": "Dr. David Davis",
+    "totalBeds": 30,
+    "occupiedBeds": 22,
+    "staffCount": 10,
+    "floor": "2nd Floor"
+  },
+  {
+    "Id": 4,
+    "name": "Pediatrics",
+    "headDoctor": "Dr. Sarah Johnson",
+    "totalBeds": 15,
+    "occupiedBeds": 8,
+    "staffCount": 7,
+    "floor": "1st Floor"
+  },
+  {
+    "Id": 5,
+    "name": "Emergency",
+    "headDoctor": "Dr. Michael Wilson",
+    "totalBeds": 10,
+    "occupiedBeds": 6,
+    "staffCount": 12,
+    "floor": "Ground Floor"
+  },
+  {
+    "Id": 6,
+    "name": "Intensive Care",
+    "headDoctor": "Dr. Lisa Martinez",
+    "totalBeds": 12,
+    "occupiedBeds": 9,
+    "staffCount": 15,
+    "floor": "5th Floor"
+  }
+]

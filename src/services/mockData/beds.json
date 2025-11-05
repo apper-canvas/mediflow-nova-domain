@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "number": "A101",
+    "ward": "Ward A",
+    "department": "Cardiology",
+    "type": "general",
+    "isOccupied": true,
+    "patientId": "1"
+  },
+  {
+    "Id": 2,
+    "number": "A102",
+    "ward": "Ward A",
+    "department": "Cardiology",
+    "type": "general",
+    "isOccupied": false,
+    "patientId": null
+  },
+  {
+    "Id": 3,
+    "number": "B205",
+    "ward": "Ward B",
+    "department": "Neurology",
+    "type": "private",
+    "isOccupied": true,
+    "patientId": "4"
+  },
+  {
+    "Id": 4,
+    "number": "C301",
+    "ward": "Ward C",
+    "department": "Orthopedics",
+    "type": "general",
+    "isOccupied": false,
+    "patientId": null
+  },
+  {
+    "Id": 5,
+    "number": "ICU01",
+    "ward": "ICU",
+    "department": "Intensive Care",
+    "type": "ICU",
+    "isOccupied": true,
+    "patientId": "2"
+  },
+  {
+    "Id": 6,
+    "number": "ICU02",
+    "ward": "ICU",
+    "department": "Intensive Care",
+    "type": "ICU",
+    "isOccupied": false,
+    "patientId": null
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "firstName": "James",
+    "lastName": "Smith",
+    "role": "doctor",
+    "specialization": "Cardiology",
+    "department": "Cardiology",
+    "phone": "+1-555-0200",
+    "email": "james.smith@hospital.com",
+    "status": "on-duty",
+    "shiftStart": "08:00",
+    "shiftEnd": "16:00"
+  },
+  {
+    "Id": 2,
+    "firstName": "Lisa",
+    "lastName": "Wilson",
+    "role": "doctor",
+    "specialization": "Dermatology",
+    "department": "Dermatology",
+    "phone": "+1-555-0201",
+    "email": "lisa.wilson@hospital.com",
+    "status": "on-duty",
+    "shiftStart": "09:00",
+    "shiftEnd": "17:00"
+  },
+  {
+    "Id": 3,
+    "firstName": "David",
+    "lastName": "Davis",
+    "role": "doctor",
+    "specialization": "Orthopedics",
+    "department": "Orthopedics",
+    "phone": "+1-555-0202",
+    "email": "david.davis@hospital.com",
+    "status": "off-duty",
+    "shiftStart": "12:00",
+    "shiftEnd": "20:00"
+  },
+  {
+    "Id": 4,
+    "firstName": "Maria",
+    "lastName": "Garcia",
+    "role": "nurse",
+    "specialization": "ICU",
+    "department": "Intensive Care",
+    "phone": "+1-555-0203",
+    "email": "maria.garcia@hospital.com",
+    "status": "on-duty",
+    "shiftStart": "07:00",
+    "shiftEnd": "19:00"
+  },
+  {
+    "Id": 5,
+    "firstName": "Robert",
+    "lastName": "Johnson",
+    "role": "technician",
+    "specialization": "Radiology",
+    "department": "Radiology",
+    "phone": "+1-555-0204",
+    "email": "robert.johnson@hospital.com",
+    "status": "on-leave",
+    "shiftStart": "08:00",
+    "shiftEnd": "16:00"
+  },
+  {
+    "Id": 6,
+    "firstName": "Anna",
+    "lastName": "Martinez",
+    "role": "nurse",
+    "specialization": "Emergency",
+    "department": "Emergency",
+    "phone": "+1-555-0205",
+    "email": "anna.martinez@hospital.com",
+    "status": "on-duty",
+    "shiftStart": "20:00",
+    "shiftEnd": "08:00"
+  }
+]
