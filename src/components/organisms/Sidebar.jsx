@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
-import LogoutButton from "@/components/molecules/LogoutButton";
+import LogoutButton from "@/components/atoms/LogoutButton";
 const Sidebar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
